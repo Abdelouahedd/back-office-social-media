@@ -8,39 +8,23 @@ function SideBar(props) {
                 <div className="sidenav-menu">
                     <div className="nav accordion" id="accordionSidenav">
                         <div className="sidenav-menu-heading">Core</div>
+                        {/* Dashbord home */}
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
                             data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                             <div className="nav-link-icon">
-                                {/* <i data-feather="activity"></i> */}
-                                <Icon.Activity />
+                                <Icon.Activity size={15} />
                             </div>
                             Dashboards
-                            <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
-                        <div className="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
-                            <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                                <a className="nav-link" href="index.html">
-                                    Default
-                                    <span className="badge badge-primary-soft text-primary ml-auto">Updated</span>
-                                </a>
-                                <a className="nav-link" href="dashboard-2.html">
-                                    Multipurpose
-                                    <span className="badge badge-primary-soft text-primary ml-auto">Updated</span>
-                                </a>
-                                <a className="nav-link" href="dashboard-3.html">
-                                    Affiliate
-                                    <span className="badge badge-primary-soft text-primary ml-auto">Updated</span>
-                                </a>
-                            </nav>
-                        </div>
-                        <div className="sidenav-menu-heading">App Views</div>
+                        {/* Gestion users */}
+                        <div className="sidenav-menu-heading">Management</div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
                             data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <div className="nav-link-icon">
-                                <Icon.Grid />
-                                {/* <i data-feather="grid"></i> */}
+                                {/* <Icon.Grid size={15} /> */}
+                                <Icon.Users size={15} />
                             </div>
-                            Pages
+                            User management
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
                         <div className="collapse" id="collapsePages" data-parent="#accordionSidenav">
@@ -199,9 +183,10 @@ function SideBar(props) {
                             data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
                             <div className="nav-link-icon">
                                 {/* <i data-feather="repeat"></i> */}
-                                <Icon.Repeat />
+                                {/* <Icon.Repeat size={15} /> */}
+                                <Icon.UserX />
                             </div>
-                            Flows
+                            Groups management
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
                         <div className="collapse" id="collapseFlows" data-parent="#accordionSidenav">
@@ -218,7 +203,7 @@ function SideBar(props) {
                             data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div className="nav-link-icon">
                                 {/* <i data-feather="layout"></i> */}
-                                <Icon.Layout />
+                                <Icon.Layout size={15} />
                             </div>
                             Layout
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -296,7 +281,7 @@ function SideBar(props) {
                             data-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
                             <div className="nav-link-icon">
                                 {/* <i data-feather="package"></i> */}
-                                <Icon.Package />
+                                <Icon.Package size={15} />
                             </div>
                             Components
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -338,7 +323,7 @@ function SideBar(props) {
                             data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
                             <div className="nav-link-icon">
                                 {/* <i data-feather="tool"></i> */}
-                                <Icon.Tool />
+                                <Icon.Tool size={15} />
                             </div>
                             Utilities
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -360,14 +345,14 @@ function SideBar(props) {
                         <a className="nav-link" href="charts.html">
                             <div className="nav-link-icon">
                                 {/* <i data-feather="bar-chart"></i> */}
-                                <Icon.BarChart />
+                                <Icon.BarChart size={15} />
                             </div>
                             Charts
                         </a>
                         <a className="nav-link" href="tables.html">
                             <div className="nav-link-icon">
                                 {/* <i data-feather="filter"></i> */}
-                                <Icon.Filter />
+                                <Icon.Filter size={15} />
                             </div>
                             Tables
                         </a>
