@@ -179,12 +179,12 @@ function SideBar(props) {
                                 </a>
                             </nav>
                         </div>
+                        
+                          {/* Gestion group */}
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
                             data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
                             <div className="nav-link-icon">
-                                {/* <i data-feather="repeat"></i> */}
-                                {/* <Icon.Repeat size={15} /> */}
-                                <Icon.UserX />
+                                <i className="fa fa-users"></i>
                             </div>
                             Groups management
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -198,6 +198,7 @@ function SideBar(props) {
                                 </a>
                             </nav>
                         </div>
+                        
                         <div className="sidenav-menu-heading">UI Toolkit</div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
                             data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
