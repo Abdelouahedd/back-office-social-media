@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.min.css'
+
 function App() {
 
   useEffect(() => {
@@ -27,7 +30,7 @@ function App() {
             <li className="nav-item dropdown no-caret mr-3 d-none d-md-inline">
               <a className="nav-link dropdown-toggle" id="navbarDropdownDocs" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div className="d-none d-md-inline font-weight-500">Documentation</div>
-                <i className="fas fa-chevron-right dropdown-arrow"></i>
+                <i className="fa fa-chevron-right dropdown-arrow"></i>
               </a>
               <div className="dropdown-menu dropdown-menu-right py-0 mr-sm-n15 mr-lg-0 o-hidden animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
                 <a className="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro" target="_blank">
@@ -91,7 +94,7 @@ function App() {
                   </div>
                 </a>
                 <a className="dropdown-item dropdown-notifications-item" href="#!">
-                  <div className="dropdown-notifications-item-icon bg-danger"><i className="fas fa-exclamation-triangle"></i></div>
+                  <div className="dropdown-notifications-item-icon bg-danger"><i className="fa fa-exclamation-triangle"></i></div>
                   <div className="dropdown-notifications-item-content">
                     <div className="dropdown-notifications-item-content-details">December 8, 2019</div>
                     <div className="dropdown-notifications-item-content-text">Critical system failure, systems shutting down.</div>
@@ -164,7 +167,7 @@ function App() {
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                   <div className="nav-link-icon"><i data-feather="activity"></i></div>
                           Dashboards
-                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapseDashboards" data-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
@@ -186,13 +189,13 @@ function App() {
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                   <div className="nav-link-icon"><i data-feather="grid"></i></div>
                           Pages
-                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapsePages" data-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAccount" aria-expanded="false" aria-controls="pagesCollapseAccount">
                       Account
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="pagesCollapseAccount" data-parent="#accordionSidenavPagesMenu">
                       <nav className="sidenav-menu-nested nav">
@@ -216,13 +219,13 @@ function App() {
                     </div>
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
                       Authentication
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="pagesCollapseAuth" data-parent="#accordionSidenavPagesMenu">
                       <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPagesAuth">
                         <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuthBasic" aria-expanded="false" aria-controls="pagesCollapseAuthBasic">
                           Basic
-                                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                         </a>
                         <div className="collapse" id="pagesCollapseAuthBasic" data-parent="#accordionSidenavPagesAuth">
                           <nav className="sidenav-menu-nested nav">
@@ -233,7 +236,7 @@ function App() {
                         </div>
                         <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuthSocial" aria-expanded="false" aria-controls="pagesCollapseAuthSocial">
                           Social
-                                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                         </a>
                         <div className="collapse" id="pagesCollapseAuthSocial" data-parent="#accordionSidenavPagesAuth">
                           <nav className="sidenav-menu-nested nav">
@@ -246,7 +249,7 @@ function App() {
                     </div>
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                       Error
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="pagesCollapseError" data-parent="#accordionSidenavPagesMenu">
                       <nav className="sidenav-menu-nested nav">
@@ -286,7 +289,7 @@ function App() {
                     </div>
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseKnowledgeBase" aria-expanded="false" aria-controls="pagesCollapseKnowledgeBase">
                       Knowledge Base
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="pagesCollapseKnowledgeBase" data-parent="#accordionSidenavPagesMenu">
                       <nav className="sidenav-menu-nested nav">
@@ -321,7 +324,7 @@ function App() {
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
                   <div className="nav-link-icon"><i data-feather="repeat"></i></div>
                           Flows
-                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapseFlows" data-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav">
@@ -336,13 +339,13 @@ function App() {
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                   <div className="nav-link-icon"><i data-feather="layout"></i></div>
                           Layout
-                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapseLayouts" data-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutSidenavVariations" aria-expanded="false" aria-controls="collapseLayoutSidenavVariations">
                       Sidenav Variations
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="collapseLayoutSidenavVariations" data-parent="#accordionSidenavLayout">
                       <nav className="sidenav-menu-nested nav">
@@ -353,7 +356,7 @@ function App() {
                     </div>
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutContainers" aria-expanded="false" aria-controls="collapseLayoutContainers">
                       Container Options
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="collapseLayoutContainers" data-parent="#accordionSidenavLayout">
                       <nav className="sidenav-menu-nested nav">
@@ -366,7 +369,7 @@ function App() {
                     </div>
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutsPageHeaders" aria-expanded="false" aria-controls="collapseLayoutsPageHeaders">
                       Page Headers
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="collapseLayoutsPageHeaders" data-parent="#accordionSidenavLayout">
                       <nav className="sidenav-menu-nested nav">
@@ -382,7 +385,7 @@ function App() {
                     </div>
                     <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayoutsStarterTemplates" aria-expanded="false" aria-controls="collapseLayoutsStarterTemplates">
                       Starter Layouts
-                                  <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                                  <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                     </a>
                     <div className="collapse" id="collapseLayoutsStarterTemplates" data-parent="#accordionSidenavLayout">
                       <nav className="sidenav-menu-nested nav">
@@ -398,7 +401,7 @@ function App() {
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
                   <div className="nav-link-icon"><i data-feather="package"></i></div>
                           Components
-                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapseComponents" data-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav">
@@ -436,7 +439,7 @@ function App() {
                 <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
                   <div className="nav-link-icon"><i data-feather="tool"></i></div>
                           Utilities
-                          <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                          <div className="sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </a>
                 <div className="collapse" id="collapseUtilities" data-parent="#accordionSidenav">
                   <nav className="sidenav-menu-nested nav">
@@ -507,7 +510,8 @@ function App() {
                             <p className="text-gray-700 mb-0">It&apos;s time to get started! View new opportunities now, or continue on your previous work.</p>
                           </div>
                         </div>
-                        <div className="col-xl-4 col-xxl-12 text-center"><img className="img-fluid" src="assets/img/freepik/at-work-pana.svg" style={{ maxWidth: "26rem" }} /></div>
+                        <div className="col-xl-4 col-xxl-12 text-center">
+                          <img className="img-fluid" src={require("./assets/img/freepik/at-work-pana.svg")} style={{ maxWidth: "26rem" }} /></div>
                       </div>
                     </div>
                   </div>
@@ -686,7 +690,7 @@ function App() {
                     </div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
                       <a className="small text-white stretched-link" href="#">View Report</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                      <div className="small text-white"><i className="fa fa-angle-right"></i></div>
                     </div>
                   </div>
                 </div>
@@ -703,7 +707,7 @@ function App() {
                     </div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
                       <a className="small text-white stretched-link" href="#">View Report</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                      <div className="small text-white"><i className="fa fa-angle-right"></i></div>
                     </div>
                   </div>
                 </div>
@@ -720,7 +724,7 @@ function App() {
                     </div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
                       <a className="small text-white stretched-link" href="#">View Tasks</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                      <div className="small text-white"><i className="fa fa-angle-right"></i></div>
                     </div>
                   </div>
                 </div>
@@ -737,7 +741,7 @@ function App() {
                     </div>
                     <div className="card-footer d-flex align-items-center justify-content-between">
                       <a className="small text-white stretched-link" href="#">View Requests</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
+                      <div className="small text-white"><i className="fa fa-angle-right"></i></div>
                     </div>
                   </div>
                 </div>
@@ -827,7 +831,7 @@ function App() {
                           <td>$320,800</td>
                           <td><div className="badge badge-primary badge-pill">Full-time</div></td>
                           <td>
-                            <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i data-feather="more-vertical"></i></button>
+                            <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i className="fa fa-more-vertical" data-feather="more-vertical"></i></button>
                             <button className="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
                           </td>
                         </tr>
