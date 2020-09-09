@@ -1,9 +1,11 @@
 import React from 'react';
+import Footer from '../shared/footer';
 
 function Main(props) {
     return (
         <div id="layoutSidenav_content">
-            <main>
+
+            <main> 
                 <header className="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
                     <div className="container">
                         <div className="page-header-content pt-4">
@@ -28,7 +30,6 @@ function Main(props) {
                         </div>
                     </div>
                 </header>
-                {/* <!-- Main page content--> */}
                 <div className="container mt-n10">
                     <div className="row">
                         <div className="col-xxl-4 col-xl-12 mb-4">
@@ -80,7 +81,6 @@ function Main(props) {
                                 </div>
                                 <div className="card-body">
                                     <div className="timeline timeline-xs">
-                                        {/* <!-- Timeline Item 1--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">27 min</div>
@@ -92,7 +92,6 @@ function Main(props) {
                                                 has been successfully placed.
                                             </div>
                                         </div>
-                                        {/* <!-- Timeline Item 2--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">58 min</div>
@@ -104,7 +103,6 @@ function Main(props) {
                                                 has been generated and is ready to view.
                                             </div>
                                         </div>
-                                        {/* <!-- Timeline Item 3--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">2 hrs</div>
@@ -116,7 +114,6 @@ function Main(props) {
                                                 has registered
                                             </div>
                                         </div>
-                                        {/* <!-- Timeline Item 4--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">1 day</div>
@@ -124,7 +121,6 @@ function Main(props) {
                                             </div>
                                             <div className="timeline-item-content">Server activity monitor alert</div>
                                         </div>
-                                        {/* <!-- Timeline Item 5--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">1 day</div>
@@ -136,7 +132,6 @@ function Main(props) {
                                                 has been successfully placed.
                                             </div>
                                         </div>
-                                        {/* <!-- Timeline Item 6--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">1 day</div>
@@ -149,7 +144,6 @@ function Main(props) {
                                                 have been updated.
                                             </div>
                                         </div>
-                                        {/* <!-- Timeline Item 7--> */}
                                         <div className="timeline-item">
                                             <div className="timeline-item-marker">
                                                 <div className="timeline-item-marker-text">2 days</div>
@@ -251,7 +245,6 @@ function Main(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- Example Colored Cards for Dashboard Demo--> */}
                     <div className="row">
                         <div className="col-xxl-3 col-lg-6">
                             <div className="card bg-primary text-white mb-4">
@@ -322,7 +315,6 @@ function Main(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- Example Charts for Dashboard Demo--> */}
                     <div className="row">
                         <div className="col-xl-6 mb-4">
                             <div className="card card-header-actions h-100">
@@ -381,7 +373,6 @@ function Main(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- Example DataTable for Dashboard Demo--> */}
                     <div className="card mb-4">
                         <div className="card-header">Personnel Management</div>
                         <div className="card-body">
@@ -1389,18 +1380,253 @@ function Main(props) {
                     </div>
                 </div>
             </main>
-            <footer className="footer mt-auto footer-light">
-                <div className="container-fluid">
+        
+            {/* <main>
+                <div className="container mt-5">
+                    <div className="d-flex justify-content-between align-items-sm-center flex-column flex-sm-row mb-4">
+                        <div className="mr-4 mb-3 mb-sm-0">
+                            <h1 className="mb-0">Dashboard</h1>
+                            <div className="small">
+                                <span className="font-weight-500 text-primary">Friday</span>
+                                &#xB7; September 20, 2020 &#xB7; 12:16 PM
+                            </div>
+                        </div>
+                        <button className="btn btn-white btn-sm line-height-normal p-3" id="reportrange">
+                            <i className="mr-2 text-primary" data-feather="calendar"></i>
+                            <span></span>
+                            <i className="ml-1" data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div className="card card-waves mb-4 mt-5">
+                        <div className="card-body p-5">
+                            <div className="row align-items-center justify-content-between">
+                                <div className="col">
+                                    <h2 className="text-primary">Welcome back, your dashboard is ready!</h2>
+                                    <p className="text-gray-700">Great job, your affiliate dashboard is ready to go! You
+                                        can view sales, generate links, prepare coupons, and download affiliate reports
+                                        using this dashboard.</p>
+                                    <a className="btn btn-primary btn-sm px-3 py-2" href="#!">
+                                        Get Started
+                                        <i className="ml-1" data-feather="arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div className="col d-none d-lg-block mt-xxl-n4"><img
+                                    className="img-fluid px-xl-4 mt-xxl-n5"
+                                    src={require("../../assets/img/freepik/statistics-pana.svg")}/></div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row">
-                        <div className="col-md-6 small">Copyright &#xA9; Your Website 2020</div>
-                        <div className="col-md-6 text-md-right small">
-                            <a href="#!">Privacy Policy</a>
-                            &#xB7;
-                            <a href="#!">Terms &amp; Conditions</a>
+                        <div className="col-xl-3 col-md-6 mb-4">
+                            <div
+                                className="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-primary h-100">
+                                <div className="card-body">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="small font-weight-bold text-primary mb-1">Earnings
+                                                (monthly)
+                                            </div>
+                                            <div className="h5">$4,390</div>
+                                            <div
+                                                className="text-xs font-weight-bold text-success d-inline-flex align-items-center">
+                                                <i className="mr-1" data-feather="trending-up"></i>
+                                                12%
+                                            </div>
+                                        </div>
+                                        <div className="ml-2"><i className="fas fa-dollar-sign fa-2x text-gray-200"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-md-6 mb-4">
+                            <div
+                                className="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-secondary h-100">
+                                <div className="card-body">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="small font-weight-bold text-secondary mb-1">Average sale
+                                                price
+                                            </div>
+                                            <div className="h5">$27.00</div>
+                                            <div
+                                                className="text-xs font-weight-bold text-danger d-inline-flex align-items-center">
+                                                <i className="mr-1" data-feather="trending-down"></i>
+                                                3%
+                                            </div>
+                                        </div>
+                                        <div className="ml-2"><i className="fas fa-tag fa-2x text-gray-200"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-md-6 mb-4">
+                            <div
+                                className="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-success h-100">
+                                <div className="card-body">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="small font-weight-bold text-success mb-1">Clicks</div>
+                                            <div className="h5">11,291</div>
+                                            <div
+                                                className="text-xs font-weight-bold text-success d-inline-flex align-items-center">
+                                                <i className="mr-1" data-feather="trending-up"></i>
+                                                12%
+                                            </div>
+                                        </div>
+                                        <div className="ml-2"><i
+                                            className="fas fa-mouse-pointer fa-2x text-gray-200"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-3 col-md-6 mb-4">
+                            <div
+                                className="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-info h-100">
+                                <div className="card-body">
+                                    <div className="d-flex align-items-center">
+                                        <div className="flex-grow-1">
+                                            <div className="small font-weight-bold text-info mb-1">Conversion rate</div>
+                                            <div className="h5">1.23%</div>
+                                            <div
+                                                className="text-xs font-weight-bold text-danger d-inline-flex align-items-center">
+                                                <i className="mr-1" data-feather="trending-down"></i>
+                                                1%
+                                            </div>
+                                        </div>
+                                        <div className="ml-2"><i className="fas fa-percentage fa-2x text-gray-200"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-4 mb-4">
+                            <div className="card mb-4">
+                                <div className="card-body text-center p-5">
+                                    <img className="img-fluid mb-5"
+                                         src={require("../../assets/img/freepik/data-report-pana.svg")}/>
+                                    <h4>Report generation</h4>
+                                    <p className="mb-4">Ready to get started? Let us know now! It&apos;s time to start
+                                        building that dashboard you&apos;ve been waiting to create!</p>
+                                    <a className="btn btn-primary btn-sm py-2 px-3" href="#!">Continue</a>
+                                </div>
+                            </div>
+                            <div className="card mb-4">
+                                <div className="card-header border-bottom-0">Affiliate Reports</div>
+                                <div className="list-group list-group-flush small">
+                                    <a className="list-group-item list-group-item-action" href="#!">
+                                        <i className="fas fa-dollar-sign fa-fw text-blue mr-2"></i>
+                                        Earnings Reports
+                                    </a>
+                                    <a className="list-group-item list-group-item-action" href="#!">
+                                        <i className="fas fa-tag fa-fw text-purple mr-2"></i>
+                                        Average Sale Price
+                                    </a>
+                                    <a className="list-group-item list-group-item-action" href="#!">
+                                        <i className="fas fa-mouse-pointer fa-fw text-green mr-2"></i>
+                                        Engagement (Clicks &amp; Impressions)
+                                    </a>
+                                    <a className="list-group-item list-group-item-action" href="#!">
+                                        <i className="fas fa-percentage fa-fw text-yellow mr-2"></i>
+                                        Conversion Rate
+                                    </a>
+                                    <a className="list-group-item list-group-item-action" href="#!">
+                                        <i className="fas fa-chart-pie fa-fw text-pink mr-2"></i>
+                                        Segments
+                                    </a>
+                                </div>
+                                <div className="card-footer border-top-0">
+                                    <a className="text-xs d-flex align-items-center justify-content-between" href="#!">
+                                        View More Reports
+                                        <i className="fas fa-long-arrow-alt-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="card bg-primary border-0">
+                                <div className="card-body">
+                                    <h5 className="text-white-50">Budget Overview</h5>
+                                    <div className="mb-4">
+                                        <span className="display-4 text-white">$48k</span>
+                                        <span className="text-white-50">per year</span>
+                                    </div>
+                                    <div className="progress bg-white-25 rounded-pill" style={{height: "0.5rem"}}>
+                                        <div className="progress-bar bg-white w-75 rounded-pill" role="progressbar"
+                                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-8 mb-4">
+                            <div className="card mb-4">
+                                <div className="card-header">Revenue Summary</div>
+                                <div className="card-body">
+                                    <div className="chart-area">
+                                        <canvas id="myAreaChart" width="100%" height="30"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    <div className="card h-100">
+                                        <div className="card-header">Sales Reporting</div>
+                                        <div className="card-body d-flex flex-column justify-content-center">
+                                            <div className="chart-bar">
+                                                <canvas id="myBarChart" width="100%" height="30"></canvas>
+                                            </div>
+                                        </div>
+                                        <div className="card-footer">
+                                            <a className="text-xs d-flex align-items-center justify-content-between"
+                                               href="#!">
+                                                View More Reports
+                                                <i className="fas fa-long-arrow-alt-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="card h-100">
+                                        <div className="card-header">Traffic Sources</div>
+                                        <div className="card-body">
+                                            <div className="chart-pie mb-4">
+                                                <canvas id="myPieChart" width="100%" height="50"></canvas>
+                                            </div>
+                                            <div className="list-group list-group-flush">
+                                                <div
+                                                    className="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+                                                    <div className="mr-3">
+                                                        <i className="fas fa-circle fa-sm mr-1 text-blue"></i>
+                                                        Direct
+                                                    </div>
+                                                    <div className="font-weight-500 text-dark">55%</div>
+                                                </div>
+                                                <div
+                                                    className="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+                                                    <div className="mr-3">
+                                                        <i className="fas fa-circle fa-sm mr-1 text-purple"></i>
+                                                        Social
+                                                    </div>
+                                                    <div className="font-weight-500 text-dark">15%</div>
+                                                </div>
+                                                <div
+                                                    className="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+                                                    <div className="mr-3">
+                                                        <i className="fas fa-circle fa-sm mr-1 text-green"></i>
+                                                        Referral
+                                                    </div>
+                                                    <div className="font-weight-500 text-dark">30%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </main> */}
+            <Footer/>
         </div>
     );
 }

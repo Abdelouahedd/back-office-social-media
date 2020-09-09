@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Icon from 'react-feather';
 
 function SideBar(props) {
     return (
@@ -8,8 +9,11 @@ function SideBar(props) {
                     <div className="nav accordion" id="accordionSidenav">
                         <div className="sidenav-menu-heading">Core</div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                           data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
-                            <div className="nav-link-icon"><i data-feather="activity"></i></div>
+                            data-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="activity"></i> */}
+                                <Icon.Activity />
+                            </div>
                             Dashboards
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
@@ -31,21 +35,24 @@ function SideBar(props) {
                         </div>
                         <div className="sidenav-menu-heading">App Views</div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                           data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div className="nav-link-icon"><i data-feather="grid"></i></div>
+                            data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div className="nav-link-icon">
+                                <Icon.Grid />
+                                {/* <i data-feather="grid"></i> */}
+                            </div>
                             Pages
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
                         <div className="collapse" id="collapsePages" data-parent="#accordionSidenav">
                             <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#pagesCollapseAccount" aria-expanded="false"
-                                   aria-controls="pagesCollapseAccount">
+                                    data-target="#pagesCollapseAccount" aria-expanded="false"
+                                    aria-controls="pagesCollapseAccount">
                                     Account
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="pagesCollapseAccount"
-                                     data-parent="#accordionSidenavPagesMenu">
+                                    data-parent="#accordionSidenavPagesMenu">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="account-profile.html">
                                             Profile
@@ -66,23 +73,23 @@ function SideBar(props) {
                                     </nav>
                                 </div>
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#pagesCollapseAuth" aria-expanded="false"
-                                   aria-controls="pagesCollapseAuth">
+                                    data-target="#pagesCollapseAuth" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth">
                                     Authentication
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="pagesCollapseAuth"
-                                     data-parent="#accordionSidenavPagesMenu">
+                                    data-parent="#accordionSidenavPagesMenu">
                                     <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavPagesAuth">
                                         <a className="nav-link collapsed" href="/"
-                                           data-toggle="collapse" data-target="#pagesCollapseAuthBasic"
-                                           aria-expanded="false" aria-controls="pagesCollapseAuthBasic">
+                                            data-toggle="collapse" data-target="#pagesCollapseAuthBasic"
+                                            aria-expanded="false" aria-controls="pagesCollapseAuthBasic">
                                             Basic
                                             <div className="sidenav-collapse-arrow"><i
                                                 className="fas fa-angle-down"></i></div>
                                         </a>
                                         <div className="collapse" id="pagesCollapseAuthBasic"
-                                             data-parent="#accordionSidenavPagesAuth">
+                                            data-parent="#accordionSidenavPagesAuth">
                                             <nav className="sidenav-menu-nested nav">
                                                 <a className="nav-link" href="auth-login-basic.html">Login</a>
                                                 <a className="nav-link" href="auth-register-basic.html">Register</a>
@@ -91,14 +98,14 @@ function SideBar(props) {
                                             </nav>
                                         </div>
                                         <a className="nav-link collapsed" href="/"
-                                           data-toggle="collapse" data-target="#pagesCollapseAuthSocial"
-                                           aria-expanded="false" aria-controls="pagesCollapseAuthSocial">
+                                            data-toggle="collapse" data-target="#pagesCollapseAuthSocial"
+                                            aria-expanded="false" aria-controls="pagesCollapseAuthSocial">
                                             Social
                                             <div className="sidenav-collapse-arrow"><i
                                                 className="fas fa-angle-down"></i></div>
                                         </a>
                                         <div className="collapse" id="pagesCollapseAuthSocial"
-                                             data-parent="#accordionSidenavPagesAuth">
+                                            data-parent="#accordionSidenavPagesAuth">
                                             <nav className="sidenav-menu-nested nav">
                                                 <a className="nav-link" href="auth-login-social.html">Login</a>
                                                 <a className="nav-link" href="auth-register-social.html">Register</a>
@@ -109,13 +116,13 @@ function SideBar(props) {
                                     </nav>
                                 </div>
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#pagesCollapseError" aria-expanded="false"
-                                   aria-controls="pagesCollapseError">
+                                    data-target="#pagesCollapseError" aria-expanded="false"
+                                    aria-controls="pagesCollapseError">
                                     Error
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="pagesCollapseError"
-                                     data-parent="#accordionSidenavPagesMenu">
+                                    data-parent="#accordionSidenavPagesMenu">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="error-400.html">
                                             400 Error
@@ -152,13 +159,13 @@ function SideBar(props) {
                                     </nav>
                                 </div>
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#pagesCollapseKnowledgeBase" aria-expanded="false"
-                                   aria-controls="pagesCollapseKnowledgeBase">
+                                    data-target="#pagesCollapseKnowledgeBase" aria-expanded="false"
+                                    aria-controls="pagesCollapseKnowledgeBase">
                                     Knowledge Base
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="pagesCollapseKnowledgeBase"
-                                     data-parent="#accordionSidenavPagesMenu">
+                                    data-parent="#accordionSidenavPagesMenu">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="knowledge-base-home-1.html">
                                             Home 1
@@ -189,8 +196,11 @@ function SideBar(props) {
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                           data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
-                            <div className="nav-link-icon"><i data-feather="repeat"></i></div>
+                            data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="repeat"></i> */}
+                                <Icon.Repeat />
+                            </div>
                             Flows
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
@@ -205,21 +215,24 @@ function SideBar(props) {
                         </div>
                         <div className="sidenav-menu-heading">UI Toolkit</div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                           data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div className="nav-link-icon"><i data-feather="layout"></i></div>
+                            data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="layout"></i> */}
+                                <Icon.Layout />
+                            </div>
                             Layout
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
                         <div className="collapse" id="collapseLayouts" data-parent="#accordionSidenav">
                             <nav className="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#collapseLayoutSidenavVariations" aria-expanded="false"
-                                   aria-controls="collapseLayoutSidenavVariations">
+                                    data-target="#collapseLayoutSidenavVariations" aria-expanded="false"
+                                    aria-controls="collapseLayoutSidenavVariations">
                                     Sidenav Variations
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="collapseLayoutSidenavVariations"
-                                     data-parent="#accordionSidenavLayout">
+                                    data-parent="#accordionSidenavLayout">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="layout-static.html">Static Navigation</a>
                                         <a className="nav-link" href="layout-dark.html">Dark Sidenav</a>
@@ -227,13 +240,13 @@ function SideBar(props) {
                                     </nav>
                                 </div>
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#collapseLayoutContainers" aria-expanded="false"
-                                   aria-controls="collapseLayoutContainers">
+                                    data-target="#collapseLayoutContainers" aria-expanded="false"
+                                    aria-controls="collapseLayoutContainers">
                                     Container Options
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="collapseLayoutContainers"
-                                     data-parent="#accordionSidenavLayout">
+                                    data-parent="#accordionSidenavLayout">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="layout-boxed.html">
                                             Boxed Layout
@@ -243,13 +256,13 @@ function SideBar(props) {
                                     </nav>
                                 </div>
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#collapseLayoutsPageHeaders" aria-expanded="false"
-                                   aria-controls="collapseLayoutsPageHeaders">
+                                    data-target="#collapseLayoutsPageHeaders" aria-expanded="false"
+                                    aria-controls="collapseLayoutsPageHeaders">
                                     Page Headers
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="collapseLayoutsPageHeaders"
-                                     data-parent="#accordionSidenavLayout">
+                                    data-parent="#accordionSidenavLayout">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="header-simplified.html">Simplified</a>
                                         <a className="nav-link" href="header-compact.html">
@@ -262,13 +275,13 @@ function SideBar(props) {
                                     </nav>
                                 </div>
                                 <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                                   data-target="#collapseLayoutsStarterTemplates" aria-expanded="false"
-                                   aria-controls="collapseLayoutsStarterTemplates">
+                                    data-target="#collapseLayoutsStarterTemplates" aria-expanded="false"
+                                    aria-controls="collapseLayoutsStarterTemplates">
                                     Starter Layouts
                                     <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                 </a>
                                 <div className="collapse" id="collapseLayoutsStarterTemplates"
-                                     data-parent="#accordionSidenavLayout">
+                                    data-parent="#accordionSidenavLayout">
                                     <nav className="sidenav-menu-nested nav">
                                         <a className="nav-link" href="starter-default.html">Default</a>
                                         <a className="nav-link" href="starter-minimal.html">
@@ -280,8 +293,11 @@ function SideBar(props) {
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                           data-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
-                            <div className="nav-link-icon"><i data-feather="package"></i></div>
+                            data-target="#collapseComponents" aria-expanded="false" aria-controls="collapseComponents">
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="package"></i> */}
+                                <Icon.Package />
+                            </div>
                             Components
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
@@ -319,8 +335,11 @@ function SideBar(props) {
                             </nav>
                         </div>
                         <a className="nav-link collapsed" href="/" data-toggle="collapse"
-                           data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
-                            <div className="nav-link-icon"><i data-feather="tool"></i></div>
+                            data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="tool"></i> */}
+                                <Icon.Tool />
+                            </div>
                             Utilities
                             <div className="sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
@@ -339,11 +358,17 @@ function SideBar(props) {
                         </div>
                         <div className="sidenav-menu-heading">Addons</div>
                         <a className="nav-link" href="charts.html">
-                            <div className="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="bar-chart"></i> */}
+                                <Icon.BarChart />
+                            </div>
                             Charts
                         </a>
                         <a className="nav-link" href="tables.html">
-                            <div className="nav-link-icon"><i data-feather="filter"></i></div>
+                            <div className="nav-link-icon">
+                                {/* <i data-feather="filter"></i> */}
+                                <Icon.Filter />
+                            </div>
                             Tables
                         </a>
                     </div>
