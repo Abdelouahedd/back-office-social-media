@@ -1,9 +1,8 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({component: Component, ...rest}) => {
-    // const auth = useSelector(state => state.auth);
-    let token = sessionStorage.getItem('jwtToken');
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    let token = localStorage.getItem('jwtInfo');
     return (
         <Route
             {...rest}
@@ -13,7 +12,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
                 } else {
                     return (
                         <Redirect
-                            to={{pathname: "/sign", state: {from: props.location}}}
+                            to={{ pathname: "/sign", state: { from: props.location } }}
                         />
                     );
                 }

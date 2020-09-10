@@ -51,25 +51,27 @@ function usersManag(props) {
                                             cellSpacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                    <th>Status</th>
+                                                    <th>photo_profil</th>
+                                                    <th>nom</th>
+                                                    <th>prenom</th>
+                                                    <th>email</th>
+                                                    <th>gender</th>
+                                                    <th>telephone</th>
+                                                    <th>fonction</th>
+                                                    <th>role</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                    <th>Status</th>
+                                                    <th>photo_profil</th>
+                                                    <th>nom</th>
+                                                    <th>prenom</th>
+                                                    <th>email</th>
+                                                    <th>gender</th>
+                                                    <th>telephone</th>
+                                                    <th>fonction</th>
+                                                    <th>role</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </tfoot>
@@ -79,8 +81,9 @@ function usersManag(props) {
                                                     <td>System Architect</td>
                                                     <td>Edinburgh</td>
                                                     <td>61</td>
+                                                    <td>61</td>
+                                                    <td>61</td>
                                                     <td>2011/04/25</td>
-                                                    <td>$320,800</td>
                                                     <td>
                                                         <div className="badge badge-primary badge-pill">Full-time</div>
                                                     </td>
@@ -93,41 +96,7 @@ function usersManag(props) {
                                                         </button>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Garrett Winters</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>63</td>
-                                                    <td>2011/07/25</td>
-                                                    <td>$170,750</td>
-                                                    <td>
-                                                        <div className="badge badge-warning badge-pill">Pending</div>
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"> <Icon.MoreVertical size="15" /></button>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark">
-                                                            <Icon.Trash2 size="15" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ashton Cox</td>
-                                                    <td>Junior Technical Author</td>
-                                                    <td>San Francisco</td>
-                                                    <td>66</td>
-                                                    <td>2009/01/12</td>
-                                                    <td>$86,000</td>
-                                                    <td>
-                                                        <div className="badge badge-secondary badge-pill">Part-time</div>
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                            <Icon.MoreVertical size="15" />
-                                                        </button>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark"><Icon.Trash2 size="15" /></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                                                                           </tbody>
                                         </table>
                                     </div>
                                 </div>

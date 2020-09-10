@@ -1,9 +1,12 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import PrivateRoute from './route/privateRoute';
 import Home from './components/home/home';
 import SignIn from './components/signIN/signIn';
 import Page404 from './components/pageNotFound/p404';
+import { Provider } from 'react-redux';
+import store from './redux/store/store';
+import { ToastProvider } from 'react-toast-notifications';
 
 const Spinner = (props) => {
     return (
@@ -26,17 +29,23 @@ const Spinner = (props) => {
 }
 
 function App() {
-
     return (
-        <Suspense fallback={<Spinner />}>
-            <BrowserRouter>
-                <Switch>
-                    <Route path='/sign' component={SignIn} />
-                    <PrivateRoute path='/'  component={Home} />
-                    <Route component={Page404} />
-                </Switch>
-            </BrowserRouter>
-        </Suspense>
+        <Provider store={store}>
+            <ToastProvider
+                autoDismiss
+            >
+                <Suspense fallback={<Spinner />}>
+                    <BrowserRouter>
+                        <Switch>
+                            <Route path='/sign' component={SignIn} />
+                            {/* <Route path='/' component={Home} /> */}
+                            <PrivateRoute path='/'  component={Home} />
+                            <Route component={Page404} />
+                        </Switch>
+                    </BrowserRouter>
+                </Suspense>
+            </ToastProvider>
+        </Provider>
     );
 }
 

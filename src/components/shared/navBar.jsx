@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Icon from 'react-feather';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/actions/authentificationActions';
+import { getUser } from '../../_helper/helper';
 
 
 function NavBar(props) {
+    const dispatch = useDispatch();
+    const [user, setUser] = useState(getUser());
+
     return (
         <nav className="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
             <a className="navbar-brand" href="/">SB Admin Pro</a>
@@ -161,8 +167,8 @@ function NavBar(props) {
                         <h6 className="dropdown-header d-flex align-items-center">
                             <img className="dropdown-user-img" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="drop down" />
                             <div className="dropdown-user-details">
-                                <div className="dropdown-user-details-name">Valerie Luna</div>
-                                <div className="dropdown-user-details-email">vluna@aol.com</div>
+                                <div className="dropdown-user-details-name">{user.nom + "" + user.prenom}</div>
+                                <div className="dropdown-user-details-email">{user.email}</div>
                             </div>
                         </h6>
                         <div className="dropdown-divider"></div>
@@ -172,7 +178,7 @@ function NavBar(props) {
                             </div>
                             Account
                         </a>
-                        <a className="dropdown-item" href="#!">
+                        <a className="dropdown-item" href="#!" onClick={() => dispatch(logOut())}>
                             <div className="dropdown-item-icon">
                                 <Icon.LogOut size={15} />
                             </div>

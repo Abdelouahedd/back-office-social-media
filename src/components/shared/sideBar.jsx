@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Icon from 'react-feather';
 import { Link } from 'react-router-dom';
+import { getUser } from '../../_helper/helper';
 
 function SideBar(props) {
+
+    const [user, setUser] = useState(getUser());
+
+
+
     return (
         <div id="layoutSidenav_nav">
             <nav className="sidenav shadow-right sidenav-light">
@@ -34,13 +40,13 @@ function SideBar(props) {
                             </div>
                             Groups management
                         </Link>
-                        
+
                     </div>
                 </div>
                 <div className="sidenav-footer">
                     <div className="sidenav-footer-content">
                         <div className="sidenav-footer-subtitle">Logged in as:</div>
-                        <div className="sidenav-footer-title">Valerie Luna</div>
+                        <div className="sidenav-footer-title">{user.nom + " " + user.prenom}</div>
                     </div>
                 </div>
             </nav>
