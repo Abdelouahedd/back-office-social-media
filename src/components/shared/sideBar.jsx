@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as Icon from 'react-feather';
 import { Link } from 'react-router-dom';
 import { getUser } from '../../_helper/helper';
 
 function SideBar(props) {
 
-    const [user, setUser] = useState(getUser());
-
-
+    const [user] = useState(getUser());
 
     return (
         <div id="layoutSidenav_nav">

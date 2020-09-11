@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import PrivateRoute from './route/privateRoute';
 import Home from './components/home/home';
