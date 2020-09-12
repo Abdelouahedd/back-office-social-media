@@ -1,13 +1,10 @@
 import React from 'react';
 import * as Icon from 'react-feather';
 
-
 function UsersTable(props) {
 
-
-
     return (
-        <table className="table table-bordered table-hover" id="dataTable" width="100%"
+        <table className="table table-bordered table-hover" id="myTable" width="100%"
             cellSpacing="0">
             <thead>
                 <tr>
@@ -59,7 +56,9 @@ function UsersTable(props) {
                                 <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2">
                                     <Icon.MoreVertical size="15" />
                                 </button>
-                                <button className="btn btn-datatable btn-icon btn-transparent-dark"><Icon.Trash2 size="15" /></button>
+                                <button className="btn btn-datatable btn-icon btn-transparent-dark">
+                                    <Icon.Trash2 size="15" onClick={() => props.deleteUser(user._id)} />
+                                </button>
                             </td>
                         </tr>
                     )

@@ -42,8 +42,7 @@ function UsersManag(props) {
     }, []);
 
     const addUser = async (user) => {
-        // await fetch(`${API_URL}/admin/addUser`, {
-        await fetch('http://localhost:4000/admin/addUser', {
+        await fetch(`${API_URL}/admin/addUser`, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
@@ -55,10 +54,7 @@ function UsersManag(props) {
                 if (res.success === true) {
                     users.unshift(res.user);
                     setUsers(users);
-                    addToast(res.msg, { appearance: 'success', autoDismiss: true },);
                     setMsg(res.msg)
-                } else {
-                    addToast(res.msg, { appearance: 'error', autoDismiss: true },);
                 }
             })
             .catch(err => {
@@ -66,6 +62,29 @@ function UsersManag(props) {
             })
     }
 
+    const deleteUser = async (id) => {
+        await fetch(`${API_URL}/admin/deleteUser/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + localStorage.getItem('jwtInfo')
+            }
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res);
+                if (res.success === true) {
+                    let newUsers = users.filter((user) => user._id !== id);
+                    setUsers(newUsers);
+                    addToast(res.msg, { appearance: 'success', autoDismiss: true },);
+                } else {
+                    addToast(res.msg, { appearance: 'error', autoDismiss: true },);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            })
+
+    }
 
     const findUser = (e) => {
         if (!e.target.value ||
@@ -135,7 +154,7 @@ function UsersManag(props) {
                                 </div>
                                 <div className="card-body">
                                     <div className="datatable">
-                                        <UsersTable users={users} />
+                                        <UsersTable users={users} deleteUser={deleteUser} />
                                     </div>
                                 </div>
                             </div>
