@@ -1,10 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../shared/footer';
 import * as Icon from 'react-feather';
+import { API_URL } from '../../../_helper/helper';
+import UsersTable from '../../tables/usersTable'
 
 function Main(props) {
+
+
+    const [info, setInfo] = useState({
+        nbrPost: 0,
+        nbrUsers: 0,
+        nbrCommunities: 0,
+        nbrRequest: 0,
+        newUser: []
+    });
+
+
+
+    useEffect(() => {
+        const abortCtrl = new AbortController();
+        const opts = { signal: abortCtrl.signal };
+
+        const fetchData = async () => {
+            await fetch(`${API_URL}/admin/dash`, {
+                method: 'GET',
+                opts,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': 'Bearer ' + localStorage.getItem('jwtInfo')
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    if (res.success === true) {
+                        setInfo(res.dashObject);
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    if (err.name === 'AbortError') {
+                        console.log('request was cancelled');
+                    }
+                });
+        }
+
+        fetchData();
+
+        return () => {
+            abortCtrl.abort();
+        }
+    }, []);
+
+
+
     return (
         <div id="layoutSidenav_content">
+
             <main>
                 <header className="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
                     <div className="container">
@@ -53,7 +105,7 @@ function Main(props) {
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="mr-3">
                                             <div className="text-white-95 small">Number of users</div>
-                                            <div className="text-lg font-weight-bold">40</div>
+                                            <div className="text-lg font-weight-bold">{info.nbrUsers}</div>
                                         </div>
                                         <i className="fa fa-user-circle fa-2x text-white-50" aria-hidden="true"></i>
                                     </div>
@@ -67,7 +119,7 @@ function Main(props) {
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="mr">
                                             <div className="text-white-95 small">Number of communities</div>
-                                            <div className="text-lg font-weight-bold">50</div>
+                                            <div className="text-lg font-weight-bold">{info.nbrCommunities}</div>
                                         </div>
                                         <i className="fa fa-users fa-2x text-white-50" aria-hidden="true"></i>
                                     </div>
@@ -81,7 +133,7 @@ function Main(props) {
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="mr-3">
                                             <div className="text-white-95 small">Number of posts</div>
-                                            <div className="text-lg font-weight-bold">24</div>
+                                            <div className="text-lg font-weight-bold">{info.nbrPost}</div>
                                         </div>
                                         <img className="feather-xl" style={{ fill: "red", opacity: "50%" }}
                                             src={require('../../../assets/img/share-post.svg')} alt="Posts" />
@@ -96,7 +148,7 @@ function Main(props) {
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="mr-3">
                                             <div className="text-white-95 small">New Requests</div>
-                                            <div className="text-lg font-weight-bold">17</div>
+                                            <div className="text-lg font-weight-bold">{info.nbrRequest}</div>
                                         </div>
                                         <i className="fa fa-user-plus feather-xl text-white-50" aria-hidden="true"></i>
                                     </div>
@@ -324,86 +376,7 @@ function Main(props) {
                         </div>
                         <div className="card-body">
                             <div className="datatable">
-                                <table className="table table-bordered table-hover" id="dataTable" width="100%"
-                                    cellSpacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                                <div className="badge badge-primary badge-pill">Full-time</div>
-                                            </td>
-                                            <td>
-                                                <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"> <Icon.MoreVertical size="15" /></button>
-                                                <button className="btn btn-datatable btn-icon btn-transparent-dark">
-                                                    <Icon.Trash2 size="15" />
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td>
-                                                <div className="badge badge-warning badge-pill">Pending</div>
-                                            </td>
-                                            <td>
-                                                <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"> <Icon.MoreVertical size="15" /></button>
-                                                <button className="btn btn-datatable btn-icon btn-transparent-dark">
-                                                    <Icon.Trash2 size="15" />
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                            <td>
-                                                <div className="badge badge-secondary badge-pill">Part-time</div>
-                                            </td>
-                                            <td>
-                                                <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                    <Icon.MoreVertical size="15" />
-                                                </button>
-                                                <button className="btn btn-datatable btn-icon btn-transparent-dark"><Icon.Trash2 size="15" /></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <UsersTable users={info.newUser} />
                             </div>
                         </div>
                     </div>
