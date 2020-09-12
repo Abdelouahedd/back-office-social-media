@@ -1,7 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Icon from 'react-feather';
+import { API_URL } from '../../../_helper/helper';
+import CommunauteTable from '../../tables/communauteTable';
 
 const CommunitieManag = () => {
+
+    const [communauties, setCommunauties] = useState([]);
+    const [tmpCommunauties, setSearch] = useState([]);
+
+    useEffect(() => {
+        const abortCtrl = new AbortController();
+        const opts = { signal: abortCtrl.signal };
+        fetch(`${API_URL}/admin/getCommunoties`, {
+            method: 'GET',
+            opts,
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + localStorage.getItem('jwtInfo')
+            }
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res);
+                if (res.success === true) {
+                    setCommunauties(res.communaute);
+                    setSearch(res.communaute);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                if (err.name === 'AbortError') {
+                    console.log('request was cancelled');
+                }
+            })
+        return () => {
+            abortCtrl.abort();
+        }
+    }, []);
+
+
+
+    const findCommunautie = (e) => {
+        if (!e.target.value ||
+            e.target.value === " " ||
+            e.target.value === "") {
+            setCommunauties(tmpCommunauties)
+        }
+        else {
+            let newArray = [];
+            newArray = communauties.filter((communautie) =>
+                communautie.titre.toLowerCase()
+                    .includes(e.target.value.toLowerCase())
+            );
+            setCommunauties(newArray);
+        }
+    }
+
+
     return (
         <div id="layoutSidenav_content">
             <main>
@@ -12,7 +66,7 @@ const CommunitieManag = () => {
                                 <div className="col-auto mt-4">
                                     <h1 className="page-header-title">
                                         <div className="page-header-icon">
-                                            <i className="fa fa-users  text-white-50" aria-hidden="true"></i>
+                                            <i className="fa fa-users text-white-50" aria-hidden="true"></i>
                                         </div>
                                         Communities
                                     </h1>
@@ -28,12 +82,12 @@ const CommunitieManag = () => {
                                 <div className="card-header">
                                     <div className="row align-items-center ml-auto">
                                         <div className="col-8 ">
-                                            Communities Management
+                                            <button className="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal">Add communautie</button>
                                         </div>
                                         <div className="col-4">
                                             <form className="form-inline mr-auto d-none d-md-block">
                                                 <div className="input-group input-group-joined input-group-solid">
-                                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search ..." />
+                                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search ..." onChange={findCommunautie} />
                                                     <div className="input-group-append">
                                                         <div className="input-group-text">
                                                             <Icon.Search size={15} />
@@ -46,89 +100,7 @@ const CommunitieManag = () => {
                                 </div>
                                 <div className="card-body">
                                     <div className="datatable">
-                                        <table className="table table-bordered table-hover" id="dataTable" width="100%"
-                                            cellSpacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>
-                                                        <div className="badge badge-primary badge-pill">Full-time</div>
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                            <Icon.MoreVertical size="15" />
-                                                            fa4-MORE
-                                                        </button>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark">
-                                                            <Icon.Trash2 size="15" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Garrett Winters</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>63</td>
-                                                    <td>2011/07/25</td>
-                                                    <td>$170,750</td>
-                                                    <td>
-                                                        <div className="badge badge-warning badge-pill">Pending</div>
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2"> <Icon.MoreVertical size="15" /></button>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark">
-                                                            <Icon.Trash2 size="15" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ashton Cox</td>
-                                                    <td>Junior Technical Author</td>
-                                                    <td>San Francisco</td>
-                                                    <td>66</td>
-                                                    <td>2009/01/12</td>
-                                                    <td>$86,000</td>
-                                                    <td>
-                                                        <div className="badge badge-secondary badge-pill">Part-time</div>
-                                                    </td>
-                                                    <td>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                            <Icon.MoreVertical size="15" />
-                                                        </button>
-                                                        <button className="btn btn-datatable btn-icon btn-transparent-dark"><Icon.Trash2 size="15" /></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <CommunauteTable communauties={communauties} />
                                     </div>
                                 </div>
                             </div>
