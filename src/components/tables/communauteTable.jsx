@@ -3,6 +3,7 @@ import { API_URL } from '../../_helper/helper';
 import * as Icon from 'react-feather';
 
 function CommunauteTable(props) {
+
     return (
         <table className="table table-bordered table-hover" id="myTable" width="100%"
             cellSpacing="0">
@@ -36,11 +37,7 @@ function CommunauteTable(props) {
                             <td>{c.titre}</td>
                             <td>{c.visibilite}</td>
                             <td>
-                                <select className="form-control" id="exampleFormControlSelect1">
-                                    {
-                                        c.admin.map(a => <option key={a._id}>{a.nom}</option>)
-                                    }
-                                </select>
+                                <small className="text-info,">{c.admin.nom}</small>
                             </td>
                             <td>
                                 <button className="btn btn-datatable btn-icon btn-transparent-dark mr-2">

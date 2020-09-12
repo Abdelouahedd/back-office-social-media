@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import * as Icon from 'react-feather';
 import { API_URL } from '../../../_helper/helper';
 import CommunauteTable from '../../tables/communauteTable';
+import ModalAddCommunautie from './ModalAddCommunautie';
 
 const CommunitieManag = () => {
 
     const [communauties, setCommunauties] = useState([]);
+    const [users, setUsers] = useState([]);
     const [tmpCommunauties, setSearch] = useState([]);
 
     useEffect(() => {
         const abortCtrl = new AbortController();
         const opts = { signal: abortCtrl.signal };
-        fetch(`${API_URL}/admin/getCommunoties`, {
+        fetch(`${API_URL}/admin/getCommunautieInfo`, {
             method: 'GET',
             opts,
             headers: {
@@ -22,8 +24,9 @@ const CommunitieManag = () => {
             .then(res => {
                 console.log(res);
                 if (res.success === true) {
-                    setCommunauties(res.communaute);
-                    setSearch(res.communaute);
+                    setCommunauties(res.data.communaute);
+                    setSearch(res.data.communaute);
+                    setUsers(res.data.users)
                 }
             })
             .catch(err => {
@@ -87,7 +90,8 @@ const CommunitieManag = () => {
                                         <div className="col-4">
                                             <form className="form-inline mr-auto d-none d-md-block">
                                                 <div className="input-group input-group-joined input-group-solid">
-                                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search ..." onChange={findCommunautie} />
+                                                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search ..."
+                                                        onChange={findCommunautie} />
                                                     <div className="input-group-append">
                                                         <div className="input-group-text">
                                                             <Icon.Search size={15} />
@@ -107,7 +111,7 @@ const CommunitieManag = () => {
                         </div>
                     </div>
                 </div>
-
+                <ModalAddCommunautie users={users} />
             </main>
         </div>
 
