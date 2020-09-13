@@ -9,6 +9,7 @@ const CommunitieManag = () => {
     const [communauties, setCommunauties] = useState([]);
     const [users, setUsers] = useState([]);
     const [tmpCommunauties, setSearch] = useState([]);
+    const [msg, setMessage] = useState("");
 
     useEffect(() => {
         const abortCtrl = new AbortController();
@@ -41,7 +42,6 @@ const CommunitieManag = () => {
     }, []);
 
 
-
     const findCommunautie = (e) => {
         if (!e.target.value ||
             e.target.value === " " ||
@@ -56,6 +56,31 @@ const CommunitieManag = () => {
             );
             setCommunauties(newArray);
         }
+    }
+
+    const addCommunautie = async (data) => {
+        await fetch(`${API_URL}/admin/addCommunaute`,
+            {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'authorization': 'Bearer ' + localStorage.getItem('jwtInfo')
+                }
+            }
+        )
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                if (res.success === true) {
+                    setMessage(res.msg);
+                    communauties.push(res.communautie);
+                    setCommunauties(communauties);
+                }
+                console.error(res.error);
+            })
+            .catch(err => {
+                alert(err)
+            });
     }
 
 
@@ -111,7 +136,7 @@ const CommunitieManag = () => {
                         </div>
                     </div>
                 </div>
-                <ModalAddCommunautie users={users} />
+                <ModalAddCommunautie users={users} addCommunautie={addCommunautie} msg={msg} />
             </main>
         </div>
 
