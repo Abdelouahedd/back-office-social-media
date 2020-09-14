@@ -52,7 +52,8 @@ const CommunitieManag = () => {
             let newArray = [];
             newArray = communauties.filter((communautie) =>
                 communautie.titre.toLowerCase()
-                    .includes(e.target.value.toLowerCase())
+                    .includes(e.target.value.toLowerCase()) || communautie.admin.nom.toLowerCase()
+                        .includes(e.target.value.toLowerCase())
             );
             setCommunauties(newArray);
         }
@@ -70,13 +71,11 @@ const CommunitieManag = () => {
         )
             .then(res => res.json())
             .then(res => {
-                console.log(res);
                 if (res.success === true) {
-                    setMessage(res.msg);
-                    communauties.push(res.communautie);
+                    communauties.unshift(res.communaute);
                     setCommunauties(communauties);
+                    setMessage(res.msg);
                 }
-                console.error(res.error);
             })
             .catch(err => {
                 alert(err)
@@ -129,7 +128,7 @@ const CommunitieManag = () => {
                                 </div>
                                 <div className="card-body">
                                     <div className="datatable">
-                                        <CommunauteTable communauties={communauties} />
+                                        <CommunauteTable communauties={communauties.reverse()} />
                                     </div>
                                 </div>
                             </div>
