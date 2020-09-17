@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as Icon from 'react-feather';
+import { useToasts } from 'react-toast-notifications';
 import { API_URL } from '../../../_helper/helper';
 import CommunauteTable from '../../tables/communauteTable';
 import ModalAddCommunautie from './ModalAddCommunautie';
@@ -10,6 +11,7 @@ const CommunitieManag = () => {
     const [users, setUsers] = useState([]);
     const [tmpCommunauties, setSearch] = useState([]);
     const [msg, setMessage] = useState("");
+    const { addToast } = useToasts();
 
     useEffect(() => {
         const abortCtrl = new AbortController();
@@ -82,7 +84,30 @@ const CommunitieManag = () => {
             });
     }
 
+    const deleteCommunautie = async (id, admin) => {
+        await fetch(`${API_URL}/admin/deleteCommunautie/${id}`, {
+            method: 'DELETE',
+            body: JSON.stringify({ admin: admin._id }),
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + localStorage.getItem('jwtInfo')
+            }
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res);
+                if (res.success === true) {
+                    let newComms = communauties.filter((com) => com._id !== id);
+                    setCommunauties(newComms)
+                    addToast(res.msg, { appearance: 'success', autoDismiss: true },);
+                } else {
+                    addToast(res.msg, { appearance: 'error', autoDismiss: true },);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            })
 
+    }
     return (
         <div id="layoutSidenav_content">
             <main>
@@ -128,7 +153,7 @@ const CommunitieManag = () => {
                                 </div>
                                 <div className="card-body">
                                     <div className="datatable">
-                                        <CommunauteTable communauties={communauties.reverse()} />
+                                        <CommunauteTable communauties={communauties.reverse()} deleteCommunautie={deleteCommunautie} />
                                     </div>
                                 </div>
                             </div>

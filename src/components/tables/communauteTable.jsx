@@ -44,7 +44,7 @@ function CommunauteTable(props) {
                                     <Icon.MoreVertical size="15" />
                                 </button>
                                 <button className="btn btn-datatable btn-icon btn-transparent-dark">
-                                    <Icon.Trash2 size="15" />
+                                    <Icon.Trash2 size="15" onClick={() => props.deleteCommunautie(c._id, c.admin)} />
                                 </button>
 
                             </td>

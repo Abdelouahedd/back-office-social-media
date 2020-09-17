@@ -33,6 +33,7 @@ function App() {
         <Provider store={store}>
             <ToastProvider
                 autoDismiss
+                placement="bottom-right"
             >
                 <Suspense fallback={<Spinner />}>
                     <BrowserRouter>
