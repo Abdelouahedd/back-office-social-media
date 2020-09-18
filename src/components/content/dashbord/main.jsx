@@ -3,7 +3,7 @@ import Footer from '../../shared/footer';
 import * as Icon from 'react-feather';
 import { API_URL } from '../../../_helper/helper';
 import UsersTable from '../../tables/usersTable'
-import { Line } from 'react-chartjs-2';
+import { Line, Pie } from 'react-chartjs-2';
 import moment from 'moment'
 function Main(props) {
 
@@ -11,6 +11,8 @@ function Main(props) {
     const [info, setInfo] = useState({
         nbrPost: 0,
         nbrUsers: 0,
+        nbrEvent: 0,
+        nbrSondage: 0,
         nbrCommunities: 0,
         nbrRequest: 0,
         newUser: [],
@@ -56,14 +58,28 @@ function Main(props) {
         }
     }, []);
 
-    const data = {
+    const dataUsers = {
         labels: info.nbrUserByDate.map((date) => date._id),
         datasets: [
             {
                 label: 'Number of users',
                 data: info.nbrUserByDate.map((nbr) => nbr.count),
-                fill: false,          // Don't fill area under the line
-                borderColor: 'green'  // Line color
+                fill: false,
+                backgroundColor: 'rgba(75,192,192,0.4)',
+                borderColor: 'rgba(75,192,192,1)',
+            }
+        ]
+    }
+    const dataPie = {
+        labels: ['Event', 'Sondage', 'Post'],
+        datasets: [
+            {
+                label: 'Number of users',
+                data: [info.nbrEvent, info.nbrSondage, info.nbrPost],
+                fill: false,
+                borderColor: 'white',
+                backgroundColor: ['red', 'blue', 'rgba(75,192,192,0.4)'],
+
             }
         ]
     }
@@ -172,194 +188,33 @@ function Main(props) {
                         </div>
                     </div>
 
-
                     <div className="row">
-                        <div className="col-xxl-8 col-xl-6 mb-4">
+                        <div className="col-xxl-6 col-xl-6 mb-4 " >
                             <div className="card card-header-actions h-100">
                                 <div className="card-header">
                                     Recent Activity
-                                    <div className="dropdown no-caret">
-                                        <button className="btn btn-transparent-dark btn-icon dropdown-toggle"
-                                            id="dropdownMenuButton" type="button" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            <Icon.MoreVertical className="text-gray-500" />
-                                        </button>
-                                        <div className="dropdown-menu dropdown-menu-right animated--fade-in-up"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <h6 className="dropdown-header">Filter Activity:</h6>
-                                            <a className="dropdown-item" href="#!"><span
-                                                className="badge badge-green-soft text-green my-1">Commerce</span></a>
-                                            <a className="dropdown-item" href="#!"><span
-                                                className="badge badge-blue-soft text-blue my-1">Reporting</span></a>
-                                            <a className="dropdown-item" href="#!"><span
-                                                className="badge badge-yellow-soft text-yellow my-1">Server</span></a>
-                                            <a className="dropdown-item" href="#!"><span
-                                                className="badge badge-purple-soft text-purple my-1">Users</span></a>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div className="card-body">
-                                    <div className="timeline timeline-xs">
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">27 min</div>
-                                                <div className="timeline-item-marker-indicator bg-green"></div>
-                                            </div>
-                                            <div className="timeline-item-content">
-                                                New order placed!
-                                                <a className="font-weight-bold text-dark" href="#!">Order #2912</a>
-                                                has been successfully placed.
-                                            </div>
-                                        </div>
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">58 min</div>
-                                                <div className="timeline-item-marker-indicator bg-blue"></div>
-                                            </div>
-                                            <div className="timeline-item-content">
-                                                Your
-                                                <a className="font-weight-bold text-dark" href="#!">weekly report</a>
-                                                has been generated and is ready to view.
-                                            </div>
-                                        </div>
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">2 hrs</div>
-                                                <div className="timeline-item-marker-indicator bg-purple"></div>
-                                            </div>
-                                            <div className="timeline-item-content">
-                                                New user
-                                                <a className="font-weight-bold text-dark" href="#!">Valerie Luna</a>
-                                                has registered
-                                            </div>
-                                        </div>
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">1 day</div>
-                                                <div className="timeline-item-marker-indicator bg-yellow"></div>
-                                            </div>
-                                            <div className="timeline-item-content">Server activity monitor alert</div>
-                                        </div>
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">1 day</div>
-                                                <div className="timeline-item-marker-indicator bg-green"></div>
-                                            </div>
-                                            <div className="timeline-item-content">
-                                                New order placed!
-                                                <a className="font-weight-bold text-dark" href="#!">Order #2911</a>
-                                                has been successfully placed.
-                                            </div>
-                                        </div>
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">1 day</div>
-                                                <div className="timeline-item-marker-indicator bg-purple"></div>
-                                            </div>
-                                            <div className="timeline-item-content">
-                                                Details for
-                                                <a className="font-weight-bold text-dark" href="#!">Marketing and
-                                                    Planning Meeting</a>
-                                                have been updated.
-                                            </div>
-                                        </div>
-                                        <div className="timeline-item">
-                                            <div className="timeline-item-marker">
-                                                <div className="timeline-item-marker-text">2 days</div>
-                                                <div className="timeline-item-marker-indicator bg-green"></div>
-                                            </div>
-                                            <div className="timeline-item-content">
-                                                New order placed!
-                                                <a className="font-weight-bold text-dark" href="#!">Order #2910</a>
-                                                has been successfully placed.
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Pie
+                                        data={dataPie}
+                                        width={100}
+                                        height={300}
+                                        options={{ maintainAspectRatio: false }}
+                                    />
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xxl-4 col-xl-6 mb-4">
+
+                        <div className="col-xxl-6 col-xl-6 mb-4">
                             <div className="card card-header-actions h-100">
                                 <div className="card-header">
-                                    Progress Tracker
-                                    <div className="dropdown no-caret">
-                                        <button className="btn btn-transparent-dark btn-icon dropdown-toggle"
-                                            id="dropdownMenuButton" type="button" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            <Icon.MoreVertical className="text-gray-500" />
-                                        </button>
-                                        <div className="dropdown-menu dropdown-menu-right animated--fade-in-up"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a className="dropdown-item" href="#!">
-                                                <div className="dropdown-item-icon">
-                                                    <Icon.List className="text-gray-500" />
-                                                </div>
-                                                Manage Tasks
-                                            </a>
-                                            <a className="dropdown-item" href="#!">
-                                                <div className="dropdown-item-icon">
-
-                                                    <Icon.PlusCircle className="text-gray-500" />
-                                                </div>
-                                                Add New Task
-                                            </a>
-                                            <a className="dropdown-item" href="#!">
-                                                <div className="dropdown-item-icon">
-                                                    <Icon.MinusCircle className="text-gray-500" />
-                                                </div>
-                                                Delete Tasks
-                                            </a>
-                                        </div>
-                                    </div>
+                                    Number of Users added grouped by date
                                 </div>
                                 <div className="card-body">
-                                    {/* <h4 className="small">
-                                        Server Migration
-                                        <span className="float-right font-weight-bold">20%</span>
-                                    </h4>
-                                    <div className="progress mb-4">
-                                        <div className="progress-bar bg-danger" role="progressbar"
-                                            style={{ width: "20%" }}
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 className="small">
-                                        Sales Tracking
-                                        <span className="float-right font-weight-bold">40%</span>
-                                    </h4>
-                                    <div className="progress mb-4">
-                                        <div className="progress-bar bg-warning" role="progressbar"
-                                            style={{ width: "40%" }}
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 className="small">
-                                        Customer Database
-                                        <span className="float-right font-weight-bold">60%</span>
-                                    </h4>
-                                    <div className="progress mb-4">
-                                        <div className="progress-bar" role="progressbar" style={{ width: "60%" }}
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 className="small">
-                                        Payout Details
-                                        <span className="float-right font-weight-bold">80%</span>
-                                    </h4>
-                                    <div className="progress mb-4">
-                                        <div className="progress-bar bg-info" role="progressbar" style={{ width: "80%" }}
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 className="small">
-                                        Account Setup
-                                        <span className="float-right font-weight-bold">Complete!</span>
-                                    </h4>
-                                    <div className="progress">
-                                        <div className="progress-bar bg-success" role="progressbar"
-                                            style={{ width: "100%" }}
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div> */}
                                     <Line
-                                        data={data}
+                                        data={dataUsers}
                                         width={100}
-                                        height={50}
+                                        height={300}
                                         options={{ maintainAspectRatio: false }}
                                     />
                                 </div>
