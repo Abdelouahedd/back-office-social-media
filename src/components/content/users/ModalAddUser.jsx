@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Formik } from 'formik'
 import * as Yup from "yup";
+import { API_URL } from '../../../_helper/helper';
 
 
 
@@ -38,7 +39,7 @@ const ModalAddUser = (props) => {
     });
 
     const [gender, setGender] = useState("Homme");
-   
+
 
 
 
@@ -48,8 +49,8 @@ const ModalAddUser = (props) => {
             const user = {
                 ...values,
                 photo_profil: gender === 'Homme' ?
-                    "http://localhost:4000/public/images/default/male.png" :
-                    "http://localhost:4000/public/images/default/female.png"
+                    "/public/images/default/male.png" :
+                    "/public/images/default/female.png"
             }
             props.addUser(user);
             actions.setStatus({ success: true });
@@ -82,8 +83,8 @@ const ModalAddUser = (props) => {
                                         <div className="card-body text-center">
                                             {
                                                 gender === 'Homme' ?
-                                                    <img className="img-account-profile rounded-circle mb-2" src="http://localhost:4000/public/images/default/male.png" alt="male " /> :
-                                                    <img className="img-account-profile rounded-circle mb-2" src="http://localhost:4000/public/images/default/female.png" alt="female " />
+                                                    <img className="img-account-profile rounded-circle mb-2" src={API_URL + "/public/images/default/male.png"} alt="male " /> :
+                                                    <img className="img-account-profile rounded-circle mb-2" src={API_URL + "/public/images/default/female.png"} alt="female " />
                                             }
                                         </div>
                                     </div>

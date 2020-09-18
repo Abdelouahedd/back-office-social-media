@@ -3,7 +3,8 @@ import Footer from '../../shared/footer';
 import * as Icon from 'react-feather';
 import { API_URL } from '../../../_helper/helper';
 import UsersTable from '../../tables/usersTable'
-
+import { Line } from 'react-chartjs-2';
+import moment from 'moment'
 function Main(props) {
 
 
@@ -12,12 +13,15 @@ function Main(props) {
         nbrUsers: 0,
         nbrCommunities: 0,
         nbrRequest: 0,
-        newUser: []
+        newUser: [],
+        nbrUserByDate: []
     });
 
 
 
     useEffect(() => {
+
+        console.log(moment(Date.now()).subtract(7, 'days').calendar());
         const abortCtrl = new AbortController();
         const opts = { signal: abortCtrl.signal };
 
@@ -52,7 +56,17 @@ function Main(props) {
         }
     }, []);
 
-
+    const data = {
+        labels: info.nbrUserByDate.map((date) => date._id),
+        datasets: [
+            {
+                label: 'Number of users',
+                data: info.nbrUserByDate.map((nbr) => nbr.count),
+                fill: false,          // Don't fill area under the line
+                borderColor: 'green'  // Line color
+            }
+        ]
+    }
 
     return (
         <div id="layoutSidenav_content">
@@ -299,7 +313,7 @@ function Main(props) {
                                     </div>
                                 </div>
                                 <div className="card-body">
-                                    <h4 className="small">
+                                    {/* <h4 className="small">
                                         Server Migration
                                         <span className="float-right font-weight-bold">20%</span>
                                     </h4>
@@ -341,15 +355,14 @@ function Main(props) {
                                         <div className="progress-bar bg-success" role="progressbar"
                                             style={{ width: "100%" }}
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                                    </div> */}
+                                    <Line
+                                        data={data}
+                                        width={100}
+                                        height={50}
+                                        options={{ maintainAspectRatio: false }}
+                                    />
                                 </div>
-                                <a className="card-footer" href="#!">
-                                    <div className="d-flex align-items-center justify-content-between small text-body">
-                                        Visit Task Center
-                                        <i data-feather="arrow-right"></i>
-                                        <Icon.ArrowRight />
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     </div>

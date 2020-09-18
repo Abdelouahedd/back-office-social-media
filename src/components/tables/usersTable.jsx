@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icon from 'react-feather';
+import { API_URL } from '../../_helper/helper';
 
 function UsersTable(props) {
 
@@ -38,7 +39,7 @@ function UsersTable(props) {
                         <tr key={user._id}>
                             <td >
                                 <div className="avatar avatar-xl">
-                                    <img src={user.photo_profil} alt="user pic" className="avatar-img img-fluid" />
+                                    <img src={API_URL + user.photo_profil} alt="user pic" className="avatar-img img-fluid" />
                                 </div>
                             </td>
                             <td>{user.nom}</td>
