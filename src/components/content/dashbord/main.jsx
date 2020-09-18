@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../../shared/footer';
 import * as Icon from 'react-feather';
 import { API_URL } from '../../../_helper/helper';
-import UsersTable from '../../tables/usersTable'
 import { Line, Pie } from 'react-chartjs-2';
-import moment from 'moment'
+import RequestUsersTable from '../../tables/requestUsersTable';
+import { useToasts } from 'react-toast-notifications';
+
+
 function Main(props) {
 
 
@@ -15,15 +17,34 @@ function Main(props) {
         nbrSondage: 0,
         nbrCommunities: 0,
         nbrRequest: 0,
-        newUser: [],
-        nbrUserByDate: []
+        nbrUserByDate: [],
+        requestUsers: []
     });
+    const { addToast } = useToasts();
 
 
+    const acceptRequest = async (_id) => {
+        await fetch(`${API_URL}/admin/acceptRequest/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + localStorage.getItem('jwtInfo')
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.success === true) {
+                    let newTab = info.requestUsers.filter(req => req._id !== _id);
+                    setInfo({ ...info, requestUsers: newTab });
+                    addToast(res.msg, { appearance: 'success', autoDismiss: true },);
+                } else {
+                    addToast(res.error, { appearance: 'error', autoDismiss: true },);
+                }
+            })
+            .catch(err => console.error(err));
+    }
 
     useEffect(() => {
-
-        console.log(moment(Date.now()).subtract(7, 'days').calendar());
         const abortCtrl = new AbortController();
         const opts = { signal: abortCtrl.signal };
 
@@ -244,7 +265,7 @@ function Main(props) {
                         </div>
                         <div className="card-body">
                             <div className="datatable">
-                                <UsersTable users={info.newUser} />
+                                <RequestUsersTable users={info.requestUsers} acceptRequest={acceptRequest} />
                             </div>
                         </div>
                     </div>
