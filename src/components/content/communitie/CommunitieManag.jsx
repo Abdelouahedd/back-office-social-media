@@ -62,6 +62,7 @@ const CommunitieManag = () => {
     }
 
     const addCommunautie = async (data) => {
+        console.log("Add communautie");
         await fetch(`${API_URL}/admin/addCommunaute`,
             {
                 method: 'POST',
@@ -80,6 +81,7 @@ const CommunitieManag = () => {
                 }
             })
             .catch(err => {
+                console.error(err.message)
                 alert(err)
             });
     }
